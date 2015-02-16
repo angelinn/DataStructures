@@ -3,6 +3,10 @@
 *.lo
 *.o
 *.obj
+debug/
+*.opensdf
+*.txt
+*.bin
 
 # Precompiled Headers
 *.gch
