@@ -1,5 +1,9 @@
 #include <iostream>
 
+size_t partition(int *, size_t);
+void step(int *, size_t, size_t, int *);
+void merge(int *, size_t, size_t, size_t, size_t, int *);
+
 void swap(int& a, int& b)
 {
 	int holder(a);
@@ -12,6 +16,10 @@ void swapIf(int& a, int& b)
 	if (a > b)
 		swap(a, b);
 }
+
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
 
 /// best  average  worst
 /// n^2     n^2     n^2
@@ -30,6 +38,10 @@ void selectionSort(int* arr, size_t size)
 	}
 }
 
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
+
 /// best  average  worst
 ///  n     n^2     n^2
 void bubbleSort(int* arr, size_t size)
@@ -42,6 +54,10 @@ void bubbleSort(int* arr, size_t size)
 		}
 	}
 }
+
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
 
 /// best  average  worst
 ///  n     n^2     n^2
@@ -64,6 +80,10 @@ void insertionSort(int* arr, size_t size)
 		arr[j] = hand;
 	}
 }
+
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
 
 /// best  average  worst
 /// n+k     n+k     n^2
@@ -98,9 +118,9 @@ void countingSort(int* arr, size_t size)
 	delete[] buffer;
 }
 
-void step(int *, size_t, size_t, int *);
-void merge(int *, size_t, size_t, size_t, size_t, int *);
-
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
 
 /// best  average  worst
 /// nlogn   nlogn  nlogn
@@ -149,8 +169,12 @@ void merge(int* arr, size_t firstStart, size_t firstEnd, size_t secondStart, siz
 		arr[i] = buffer[i];
 }
 
-size_t partition(int *, size_t);
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
 
+/// best  average  worst
+/// nlogn   nlogn   n^2
 void quickSort(int* arr, size_t size)
 {
 	if (size <= 1 || !arr)
@@ -201,6 +225,13 @@ size_t partition(int* arr, size_t size)
 	return left;
 }
 
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
+
+///
+/// Shaker (Cocktail) Sort
+///
 void shakerSort(int* arr, size_t size)
 {
 	size_t left = 0;
@@ -219,6 +250,11 @@ void shakerSort(int* arr, size_t size)
 		--right;
 	}
 }
+
+///
+/// ----------------------------------------------------------------------------------------------------------------------------------
+/// 
+
 
 void printArr(int* arr, size_t size)
 {
