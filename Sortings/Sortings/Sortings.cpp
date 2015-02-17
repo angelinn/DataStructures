@@ -3,6 +3,7 @@
 size_t partition(int *, size_t);
 void step(int *, size_t, size_t, int *);
 void merge(int *, size_t, size_t, size_t, size_t, int *);
+void sift(int *, size_t, size_t);
 
 void swap(int& a, int& b)
 {
@@ -253,8 +254,53 @@ void shakerSort(int* arr, size_t size)
 
 ///
 /// ----------------------------------------------------------------------------------------------------------------------------------
-/// 
+///
+void printArr(int* arr, size_t);
 
+void heapSort(int* arr, size_t size)
+{
+	size_t i = size / 2;
+
+	while (i--)
+		sift(arr, i, size);
+
+	printArr(arr, size);
+	i = size;
+	while (--i)
+	{
+		swap(arr[0], arr[i]);
+		sift(arr, 0, i);
+		printArr(arr, size);
+	}
+}
+
+void sift(int* arr, size_t pos, size_t size)
+{
+	int elem(arr[pos]);
+	size_t ni = pos;
+	size_t si = 2 * pos + 1;
+	
+	while (si < size)
+	{
+		if (si + 1 < size && arr[si] < arr[si + 1])
+			++si;
+
+		if (elem > arr[si])
+			break;
+
+		arr[ni] = arr[si];
+		ni = si;
+		si = 2 * si + 1;
+	}
+
+	arr[ni] = elem;
+}
+
+
+void shellSort(int* arr, size_t size)
+{
+
+}
 
 void printArr(int* arr, size_t size)
 {
@@ -271,7 +317,7 @@ int main()
 	int sho[] = { 1, 100, 2 };
 	int other[5] {5, 2, 3, 1, 4};
 	printArr(arr, size);
-	shakerSort(arr, size);
+	heapSort(arr, size);
 	printArr(arr, size);
 
 }
