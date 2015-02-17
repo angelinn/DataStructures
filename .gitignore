@@ -3,13 +3,14 @@
 *.lo
 *.o
 *.obj
-<<<<<<< HEAD
 debug/
 *.opensdf
 *.txt
 *.bin
-=======
->>>>>>> 75e92c6fe4a6ef9e99f7bf8257cafbae3c93080e
+Debug/
+*.tlog
+*.pdb
+*.ilk
 
 # Precompiled Headers
 *.gch
