@@ -24,10 +24,15 @@ public:
 public:
 	void insert(const T &);
 	Node* search(const T &);
+	void remove(const T &);
+
+public:
 	void print() const;
 	void print(Node *) const;
 
 private:
+	void removeRecursive(const T &, Node *&);
+	Node* getMin(Node *&) const;
 	void insertRecursive(const T &, Node *);
 	Node* searchRecursive(const T &, Node *);
 	void deleteTree(Node *);
@@ -114,6 +119,53 @@ typename BinaryTree<T>::Node* BinaryTree<T>::searchRecursive(const T& data, Node
 		return searchRecursive(data, node->right);
 	}
 	return NULL;
+}
+
+template <typename T>
+void BinaryTree<T>::remove(const T& data)
+{
+	removeRecursive(data, root);
+}
+
+template <typename T>
+void BinaryTree<T>::removeRecursive(const T& data, Node*& node)
+{
+	if (node)
+	{
+		if (value < node->data)
+			remove(node->left, value);
+		else if (value > node->data)
+			remove(node->right, value);
+		else if (node->left && node->right)
+		{
+			node->data = getMin(node->right)->data;
+			remove(node->right, node->data);
+		}
+		else
+		{
+			Node* n = node;
+			node = node->left ? node->left : node->right;
+			//if (node)
+			//{
+			//	n = getMin(root->right);
+			//	node->data = n->data;
+			//}
+			delete n;
+		}
+
+	}
+}
+
+template <typename T>
+typename BinaryTree<T>::Node* BinaryTree<T>::getMin(Node*& node) const
+{
+	if (!node)
+		return NULL;
+
+	if (!node->left)
+		return node;
+
+	return getMin(node->left);
 }
 
 template <typename T>
