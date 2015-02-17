@@ -255,7 +255,6 @@ void shakerSort(int* arr, size_t size)
 ///
 /// ----------------------------------------------------------------------------------------------------------------------------------
 ///
-void printArr(int* arr, size_t);
 
 void heapSort(int* arr, size_t size)
 {
@@ -264,13 +263,11 @@ void heapSort(int* arr, size_t size)
 	while (i--)
 		sift(arr, i, size);
 
-	printArr(arr, size);
 	i = size;
 	while (--i)
 	{
 		swap(arr[0], arr[i]);
 		sift(arr, 0, i);
-		printArr(arr, size);
 	}
 }
 
