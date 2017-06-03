@@ -1,6 +1,24 @@
-# DataStructures
-<<<<<<< HEAD
-Most commonly used Data Structures.
-=======
-Implementation of the most common Data Structures.
->>>>>>> 75e92c6fe4a6ef9e99f7bf8257cafbae3c93080e
+# C++ Cheatsheet
+
+Implementations of some data structures and algorithms in the beauty of C++
+
+## Data structures:
+* Stack
+  * Linked
+  * Fixed
+* List
+  * Linked
+* Queue
+  
+## Algorithms:
+* Floyd
+
+## Sortings
+* Selection
+* Bubble
+* Shaker
+* Quick
+* Heap
+* Merge
+* Insertion
+* Counting
